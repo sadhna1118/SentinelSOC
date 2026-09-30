@@ -3,7 +3,7 @@ import time
 import httpx
 import sys
 
-API_URL = "http://127.0.0.1:8000/api/v1/logs/raw"
+API_URL = "https://sentinelsoc-771b.onrender.com/api/v1/logs/raw"
 
 def get_latest_security_events():
     # PowerShell command to fetch recent Security event logs
