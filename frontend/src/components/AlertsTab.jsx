@@ -146,7 +146,7 @@ export function AlertsTab({
                       <span style={{ fontWeight: '700', fontSize: '14px', color: '#fff' }}>{alert.alert_type}</span>
                     </div>
                     <span className="mono" style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                      {new Date(alert.timestamp).toLocaleTimeString()}
+                      {new Date(alert.timestamp).toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' })}
                     </span>
                   </div>
 

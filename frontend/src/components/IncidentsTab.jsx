@@ -141,7 +141,7 @@ export function IncidentsTab({ onOpenReportModal }) {
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--text-muted)' }}>
                     <span>Lead: <strong style={{ color: '#fff' }}>{inc.assigned_to || 'soc_analyst'}</strong></span>
-                    <span className="mono">{new Date(inc.created_at).toLocaleDateString()}</span>
+                    <span className="mono">{new Date(inc.created_at).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
                   </div>
                 </div>
               );

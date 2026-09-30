@@ -7,7 +7,7 @@ export function Header({ metrics, onRefresh, isRefreshing, onQuickSimulate, isLi
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleString('en-GB') + ' LOCAL');
+      setTime(now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST');
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
