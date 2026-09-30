@@ -286,16 +286,21 @@ def init_db():
             print("[INFO] Seeded default SentinelSOC threat intelligence IOCs.")
 
         # 3. Seed or Update SOC Analyst User
-        analyst = db.query(User).filter(User.username == "soc_analyst").first()
+        import os
+        from app.api.auth import get_password_hash
+        admin_user = os.environ.get("ADMIN_USERNAME", "admin")
+        admin_pass = os.environ.get("ADMIN_PASSWORD", "admin")
+        
+        analyst = db.query(User).filter(User.username == admin_user).first()
         if not analyst:
             analyst = User(
-                username="soc_analyst",
-                email="analyst@sentinelsoc.internal",
-                password_hash="$2b$12$TYh6dQ1NMKAAIJAqORki3OftOm355LLg7oP3U5KlP.2XPiCg.mIsC", # admin123
+                username=admin_user,
+                email="admin@sentinelsoc.internal",
+                password_hash=get_password_hash(admin_pass),
                 role="ADMIN"
             )
             db.add(analyst)
-            print("[INFO] Seeded default SOC Analyst user: 'soc_analyst'.")
+            print(f"[INFO] Seeded default SOC user: '{admin_user}'. Please change the password in production.")
         
         db.commit()
 

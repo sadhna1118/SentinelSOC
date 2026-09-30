@@ -12,9 +12,7 @@
 ---
 
 ### 🚀 [Click Here for Live SOC Experience](https://sentinel-soc-three.vercel.app)
-**Default Login Credentials:**
-- **Username:** `soc_analyst`
-- **Password:** `admin123`
+**Login:** Use your configured administrator credentials.
 
 ---
 

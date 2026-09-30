@@ -40,8 +40,11 @@ def get_latest_security_events():
 
 def authenticate():
     try:
+        import os, getpass
+        username = os.environ.get("SOC_USERNAME") or input("Enter SOC Username: ")
+        password = os.environ.get("SOC_PASSWORD") or getpass.getpass("Enter SOC Password: ")
         auth_url = API_URL.replace("/logs/raw", "/auth/login")
-        response = httpx.post(auth_url, data={"username": "soc_analyst", "password": "admin123"}, timeout=5.0)
+        response = httpx.post(auth_url, data={"username": username, "password": password}, timeout=5.0)
         if response.status_code == 200:
             return response.json().get("access_token")
         else:
