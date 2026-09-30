@@ -18,6 +18,8 @@ class Settings:
         "DATABASE_URL", 
         f"sqlite:///{BASE_DIR}/sentinelsoc.db"
     )
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
     
     # Security & JWT Token Configurations
     SECRET_KEY: str = os.getenv("SECRET_KEY", "e2d8471c26f0b4d5a91f543e8c9d0b67a3f892c4b5e6d1a2f304958674b210dc")
