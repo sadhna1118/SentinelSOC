@@ -177,7 +177,7 @@ export function LogExplorerTab({ onOpenRawInjector }) {
                 logs.map((log) => (
                   <tr key={log.id}>
                     <td className="mono" style={{ fontSize: '11.5px', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>
-                      {new Date(log.timestamp).toISOString().replace('T', ' ').substring(0, 19)}
+                      {new Date(log.timestamp).toLocaleString()}
                     </td>
                     <td>
                       <span className="badge" style={{ background: '#1e293b', color: '#94a3b8' }}>
