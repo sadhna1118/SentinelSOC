@@ -67,6 +67,7 @@ app.include_router(ws_router, prefix="")
 # Remove top-level aliases to enforce strict /api/v1 prefix and security
 
 
+@app.head("/", tags=["System"])
 @app.get("/", tags=["System"])
 def root():
     """
